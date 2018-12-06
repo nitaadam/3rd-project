@@ -4,7 +4,24 @@ body {
     font-family: 'Cinzel';
 }
 
-div.main {
+.main {
     text-align: center;
     position: relative;
+}
+
+.side {
+    background-color: rgb(29, 28, 28);
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 25%;
+    z-index: 1;
+}
+
+.sideTitle {
+    color: beige;
+    font-family: 'Cinzel';
+    font-size: 30px;
+    text-align: center;
 }
