@@ -1,27 +1,36 @@
 body {
-    background-image: url('/assets/site/mapblue.jpg');
-    color: rgb(0, 0, 0);
-    font-family: 'Cinzel';
+  background-image: url("/assets/site/mapblue.jpg");
+  color: rgb(0, 0, 0);
+  font-family: "Cinzel";
 }
 
 .main {
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
 }
 
 .side {
-    background-color: rgb(29, 28, 28);
-    height: 100%;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 25%;
-    z-index: 1;
+  background-color: rgb(29, 28, 28);
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 25%;
+  z-index: 1;
 }
 
 .sideTitle {
-    color: beige;
-    font-family: 'Cinzel';
-    font-size: 30px;
-    text-align: center;
+  color: beige;
+  font-family: "Cinzel";
+  font-size: 30px;
+  text-align: center;
+}
+
+.searchBox {
+  border-radius: 6px;
+  box-sizing: border-box;
+  height: 30px;
+  margin-top: 150%;
+  outline-color: rgba(8, 6, 31, 0.863);
+  width: 300px;
 }
