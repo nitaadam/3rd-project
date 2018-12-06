@@ -1,0 +1,10 @@
+body {
+    background-image: url('/assets/site/mapblue.jpg');
+    color: rgb(0, 0, 0);
+    font-family: 'Cinzel';
+}
+
+div.main {
+    text-align: center;
+    position: relative;
+}
