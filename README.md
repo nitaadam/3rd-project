@@ -8,14 +8,21 @@ Git
 Első lépésként hozz létre egy lokális repot a kiinduló mappádban.
 Ezután hozz létre egy GitHub repot az alábbi néven: Vezetekneved-Keresztneved-BasicExam
 Ebbe a remote repoba pushold mindig a változtatásokat. A végén a repo tartalma lesz értékelve.
-Alapkövetelmények
+Alapkövetelmények:
 • Szematikus html elemek használata kötelező!
+
 • Valid html markup legyen!
+
 • A css class elnevezések a BEM metodika szerint történjenek!
+
 • A css tulajdonságok ABC sorrendbe legyenek rendezve!
+
 • Nem lehet ESLint hiba (airbnb-es5 konfiguráció)!
+
 • A Clean coding szabályait tartsátok be!
+
 • Legyen master, develop és külön feature branch. Ha kell legyen bugfix branch!
+
 Frontend feladatok
 
 1. Html és css segítségével hozz létre egy hasonló elrendezésű oldalt! \*
