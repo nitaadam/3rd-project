@@ -13,9 +13,8 @@ function successGetGameOfThronesCharacterDatas(xhttp) {
   // Nem szabad globálisba kitenni a userDatas-t!
   var userDatas = JSON.parse(xhttp.responseText);
   // Innen hívhatod meg a többi függvényed
-  var aliveData = aliveOnly(userDatas);
-  var sortedData = sortPeople(aliveData);
-  showNames(sortedData);
+  var aliveCharacters = filterOnlyAlive(userDatas);
+  charactersPortrait(aliveCharacters);
 }
 
 getGameOfThronesCharacterDatas(
@@ -25,44 +24,39 @@ getGameOfThronesCharacterDatas(
 
 // Live servert használd mindig!!!!!
 /* IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ! */
-function aliveOnly(data) {
-  var karakterek = [];
-  console.log(data[0]);
-  for (var i = 0; i < data.length; i++) {
-    if (!data[i].dead) {
-      karakterek.push(data[i]);
+function filterOnlyAlive(userDatas) {
+  var aliveUserDatas = [];
+  for (var i = 0; i < userDatas.length; i++) {
+    if (userDatas[i].dead !== true) {
+      aliveUserDatas.push(userDatas[i]);
     }
   }
-  return karakterek;
+  console.log(aliveUserDatas);
+  return aliveUserDatas;
 }
 
-function sortPeople(data) {
-  var rendezes = data.sort(function (a, b) {
-    return a.name.localeCompare(b.name);
+function putArrayInOrder(userDatas) {
+  userDatas.sort(function (first, second) {
+    if (first.name > second.name) {
+      return 1;
+    }
+    return -1;
+
   });
-  return rendezes;
+  filterOnlyAlive(userDatas);
 }
 
-function showNames(data) {
-  var tbody = document.querySelector("tbody");
-  for (var i = 0; i < data.length; i++) {
-    if (i % 8 === 0) {
-      var tr = document.createElement("tr");
-    }
-    createTd(data, i, tr);
-    addRowToBody(i, tr, tbody);
+function charactersPortrait(aliveUserDatas) {
+  var portraitRowElement = document.querySelector('#mainarea');
+  var portraitRow = '';
+  for (var i = 0; i < aliveUserDatas.length; i += 1) {
+    portraitRow +=
+      ` 
+                    <div class="mainPortraits">
+                        <img src="${aliveUserDatas[i].portrait}" alt="${aliveUserDatas[i].name}"> <br> 
+                        ${aliveUserDatas[i].name}
+                        </div>
+                  `;
   }
-}
-
-function createTd(data, i, tr) {
-  var td = document.createElement("td");
-  td.innerHTML = data[i].name;
-  tr.appendChild(td);
-}
-
-
-function addRowToBody(i, tr, tbody) {
-  if (i % 7 === 0) {
-    tbody.appendChild(tr);
-  }
+  portraitRowElement.innerHTML = portraitRow;
 }
