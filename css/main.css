@@ -18,14 +18,14 @@ body {
 
 
 .side {
-  background-color: rgb(29, 28, 28);
-  color: beige;
-  height: 100%;
-  position: fixed;
-  right: 0;
+  background-color: black;
+  bottom: 0;
+  width: 15%;
+  position: absolute;
+  right: 0px;
+  float: left;
   top: 0;
   width: 25%;
-  z-index: 1;
 }
 
 .sideTitle {

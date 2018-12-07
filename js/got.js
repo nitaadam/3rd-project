@@ -13,8 +13,10 @@ function successGetGameOfThronesCharacterDatas(xhttp) {
   // Nem szabad globálisba kitenni a userDatas-t!
   var userDatas = JSON.parse(xhttp.responseText);
   // Innen hívhatod meg a többi függvényed
-  var aliveCharacters = filterOnlyAlive(userDatas);
-  charactersPortrait(aliveCharacters);
+  var living = filterOnlyAlive(userDatas);
+  putArrayInOrder(living);
+  charactersPortrait(living);
+
 }
 
 getGameOfThronesCharacterDatas(
@@ -24,17 +26,6 @@ getGameOfThronesCharacterDatas(
 
 // Live servert használd mindig!!!!!
 /* IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ! */
-function filterOnlyAlive(userDatas) {
-  var aliveUserDatas = [];
-  for (var i = 0; i < userDatas.length; i++) {
-    if (userDatas[i].dead !== true) {
-      aliveUserDatas.push(userDatas[i]);
-    }
-  }
-  console.log(aliveUserDatas);
-  return aliveUserDatas;
-}
-
 function putArrayInOrder(userDatas) {
   userDatas.sort(function (first, second) {
     if (first.name > second.name) {
@@ -44,6 +35,18 @@ function putArrayInOrder(userDatas) {
 
   });
   filterOnlyAlive(userDatas);
+}
+
+function filterOnlyAlive(userDatas) {
+  var aliveUserDatas = [];
+  for (var i = 0; i < userDatas.length; i++) {
+    if (userDatas[i].dead !== true) {
+      aliveUserDatas.push(userDatas[i]);
+    }
+  }
+  console.log(aliveUserDatas);
+  return aliveUserDatas;
+
 }
 
 function charactersPortrait(aliveUserDatas) {
