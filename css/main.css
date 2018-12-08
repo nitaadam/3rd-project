@@ -19,6 +19,7 @@ body {
 
 .side {
   background-color: black;
+  color: beige;
   bottom: 0;
   width: 15%;
   position: absolute;
@@ -33,6 +34,11 @@ body {
   font-family: "Cinzel";
   font-size: 30px;
   text-align: center;
+}
+
+.detail {
+  color: beige;
+  font-size: 10px;
 }
 
 .searchBox {

@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cinzel"
+      rel="stylesheet"
+    />
+    <title>Game of Thrones</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" type="text/css" href="css/main.css" />
-  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" />
-  <title>Game of Thrones</title>
-</head>
+  <body>
+    <div id="mainarea" class="main">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="sidearea" class="side">
+      <h2 class="sideTitle">Game of Thrones</h2>
+      <div id="detail"></div>
+      <div id="searchArea">
+        <button id="usersearchbutton" class="searchButton">&gt</button>
+        <input
+          id="usersearch"
+          type="text"
+          class="searchBox"
+          placeholder="Keresés"
+        />
+      </div>
+    </div>
 
-<body>
-  <div id="mainarea" class="main">
-    <table>
-      <tbody></tbody>
-    </table>
-  </div>
-  <div id="sidearea" class="side">
-    <h2 class="sideTitle">Game of Thrones</h2>
-    <div id="queryResultBox"></div>
-    <button id="usersearchbutton" class="searchButton">&gt</button>
-    <input id="usersearch" type="text" class="searchBox" placeholder="Keresés" />
-  </div>
-
-  <script src="./js/got.js"></script>
-</body>
-
+    <script src="./js/got.js"></script>
+  </body>
 </html>
