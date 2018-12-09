@@ -9,11 +9,17 @@ body {
 }
 
 .mainPortraits {
+  cursor: pointer;
   float: left;
   margin: auto;
   padding: 2px;
   text-align: center;
+  transition-duration: 0.3s;
   width: 12%;
+}
+
+.mainPortraits:hover {
+  transform: scale(1.2);
 }
 
 
