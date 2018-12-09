@@ -19,12 +19,11 @@ body {
 
 .side {
   background-color: black;
-  color: beige;
   bottom: 0;
-  width: 15%;
+  color: beige;
+  float: left;
   position: absolute;
   right: 0px;
-  float: left;
   top: 0;
   width: 25%;
 }
