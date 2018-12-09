@@ -16,6 +16,8 @@ function successGetGameOfThronesCharacterDatas(xhttp) {
   var living = filterOnlyAlive(userDatas);
   putArrayInOrder(living);
   charactersPortrait(living);
+  searchfunction(living);
+  eventListenerOnPortraits(living);
 }
 
 getGameOfThronesCharacterDatas(
@@ -115,5 +117,24 @@ function search(userDatas) {
   }
   if (found === false) {
     displaynotfound();
+  }
+}
+
+//Képre kattintáskor:
+function eventListenerOnPortraits(userDatas) {
+  var clickOnImages = document.querySelectorAll(".main__click-on");
+  for (var i = 0; i < clickOnImages.length; i += 1) {
+    clickOnImages[i].addEventListener("click", function fn() {
+      clickOnCharacters(userDatas, this.alt);
+    });
+  }
+}
+
+function clickOnCharacters(userDatas, character) {
+  var rightDiv = document.querySelector(".searcharea");
+  for (var i = 0; i < userDatas.length; i += 1) {
+    if (userDatas[i].name === character) {
+      searchedCharacter(userDatas[i], rightDiv);
+    }
   }
 }
