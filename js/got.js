@@ -1,6 +1,6 @@
 function getGameOfThronesCharacterDatas(url, callbackFunc) {
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       callbackFunc(this);
     }
@@ -30,7 +30,7 @@ getGameOfThronesCharacterDatas(
 
 //Karakterek sorba rendezése:
 function putArrayInOrder(userDatas) {
-  userDatas.sort(function(first, second) {
+  userDatas.sort(function (first, second) {
     if (first.name > second.name) {
       return 1;
     }
@@ -122,19 +122,19 @@ function search(userDatas) {
 
 //Képre kattintáskor:
 function eventListenerOnPortraits(userDatas) {
-  var clickOnImages = document.querySelectorAll(".main__click-on");
+  var clickOnImages = document.querySelectorAll(".mainPortraits");
   for (var i = 0; i < clickOnImages.length; i += 1) {
-    clickOnImages[i].addEventListener("click", function fn() {
+    clickOnImages[i].addEventListener("click", function x() {
       clickOnCharacters(userDatas, this.alt);
     });
   }
 }
 
 function clickOnCharacters(userDatas, character) {
-  var rightDiv = document.querySelector(".searcharea");
+  var sidearea = document.querySelector(".sidedetail");
   for (var i = 0; i < userDatas.length; i += 1) {
     if (userDatas[i].name === character) {
-      searchedCharacter(userDatas[i], rightDiv);
+      searchedCharacter(userDatas[i], sidearea);
     }
   }
 }
