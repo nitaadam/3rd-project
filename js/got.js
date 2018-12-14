@@ -1,6 +1,6 @@
 function getGameOfThronesCharacterDatas(url, callbackFunc) {
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
       callbackFunc(this);
     }
@@ -30,7 +30,7 @@ getGameOfThronesCharacterDatas(
 
 //Karakterek sorba rendezése:
 function putArrayInOrder(userDatas) {
-  userDatas.sort(function (first, second) {
+  userDatas.sort(function(first, second) {
     if (first.name > second.name) {
       return 1;
     }
@@ -79,18 +79,20 @@ function searchfunction(userDatas) {
 //Sikeres keresés:
 function displaycharacter(searchedCharacter) {
   var profile = document.getElementById("sidedetail");
+  var sidearea = document.querySelector(".sidedetail");
   var house = "";
-  if (searchedCharacter[0].house) {
-    house = `<img src = "/assets/houses/${searchedCharacter[0].house}.png">`;
+  if (searchedCharacter.house) {
+    house = `<img src = "/assets/houses/${searchedCharacter.house}.png">`;
   } else {
     house = "";
   }
   profile.innerHTML = `${house}<div class="sidearea_info"> ${
-    searchedCharacter[0].name
+    searchedCharacter.name
   } </div> <br>
-  <img src = "/${searchedCharacter[0].picture}"> <br>
-  <div class="sidearea_bio"> ${searchedCharacter[0].bio}</div><br>`;
+  <img src = "/${searchedCharacter.picture}"> <br>
+  <div class="sidearea_bio"> ${searchedCharacter.bio}</div><br>`;
   document.getElementById("usersearch").value = "";
+  displaycharacter(character, sidearea);
 }
 
 //Sikertelen keresés:
@@ -121,20 +123,16 @@ function search(userDatas) {
 }
 
 //Képre kattintáskor:
+function a(userDatas, clickOnImages, i) {
+  console.log(userDatas[i]);
+  clickOnImages.addEventListener("click", function x() {
+    displaycharacter(userDatas[i]);
+  });
+}
+
 function eventListenerOnPortraits(userDatas) {
   var clickOnImages = document.querySelectorAll(".mainPortraits");
   for (var i = 0; i < clickOnImages.length; i += 1) {
-    clickOnImages[i].addEventListener("click", function x() {
-      clickOnCharacters(userDatas, this.alt);
-    });
-  }
-}
-
-function clickOnCharacters(userDatas, character) {
-  var sidearea = document.querySelector(".sidedetail");
-  for (var i = 0; i < userDatas.length; i += 1) {
-    if (userDatas[i].name === character) {
-      searchedCharacter(userDatas[i], sidearea);
-    }
+    a(userDatas, clickOnImages[i], i);
   }
 }
